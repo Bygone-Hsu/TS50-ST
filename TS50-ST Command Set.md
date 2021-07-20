@@ -8,9 +8,9 @@
     2. [CRC16 Calculation](GNetPlus%20Protocol.md#crc16-calculation)
     3. [GNetPlus Implement](GNetPlus%20Protocol.md#gntplus-implement)
 3. [Commands](#3.-commands)
-    1. [Get Version](#3.1-get-version(10h)-command)
-    2. [Device Control](#3.2-device-control(dch)-command)
-4. [Error Code](#4-error-code)
+    1. [Get Version](#3.1.-get-version(10h)-command)
+    2. [Device Control](#3.2.-device-control(dch)-command)
+4. [Error Code](#4.-error-code)
 
 ## 3. Commands
 
@@ -128,7 +128,7 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | 0 | 2 | u16 | Level | On/Off Level (Big-Endian) |
 | 2 | 2 | u16 | Timeout | Keep Level Timeout (Big-Endian, 單位: 1ms) |
 
-## 4\. Error Code
+## 4. Error Code
 
 | Value | Name | Description |
 | :---: | ---- | ----------- |
