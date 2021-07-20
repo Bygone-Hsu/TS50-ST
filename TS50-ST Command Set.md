@@ -23,7 +23,7 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | [Get Version](#3-1-get-version(10h)-command) | `10h` | Get Firmware / Hardware version |
 | [Device Control](#3-2-device-control(dch)-command) | `DCh` | Device I/O Control |
 
-## 3-1\. Get Version(10h) Command
+## 3-1\. Get Version\(10h\) Command
 
 ### Get Firmware/Hardware Version
 
