@@ -7,10 +7,10 @@
     1. [Basic Package](GNetPlus%20Protocol.md#basic_package)
     2. [CRC16 Calculation](GNetPlus%20Protocol.md#crc16_calculation)
     3. [GNetPlus Implement](GNetPlus%20Protocol.md#gntplus_implement)
-3. [Commands](3.-commands)
-    1. [Get Version](#3.1.-get-version(10h)-command)
-    2. [Device Control](#3.2.-device-control(dch)-command)
-4. [Error Code](4.-error-code)
+3. [Commands](3\.-commands)
+    1. [Get Version](3\.1\.-get-version(10h)-command)
+    2. [Device Control](3\.2\.-device-control(dch)-command)
+4. [Error Code](4\.-error-code)
 
 ## 3\. Commands
 
@@ -20,8 +20,8 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 
 | Name | Code | Meaning |
 | :---: | :---: | ------- |
-| [Get Version](#3.1.-get-version(10h)-command) | `10h` | Get Firmware / Hardware version |
-| [Device Control](#3.2.-device-control(dch)-command) | `DCh` | Device I/O Control |
+| [Get Version](3\.1\.-get-version(10h)-command) | `10h` | Get Firmware / Hardware version |
+| [Device Control](3\.2\.-device-control(dch)-command) | `DCh` | Device I/O Control |
 
 ## 3.1. Get Version(10h) Command
 
@@ -37,9 +37,9 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
     * NAK: Response an error code.
     * ACK: Success with response data
         * Response Data
-        | Offset | Bytes | Type | Name | Description |
-        | :----: | :---: | :--: | ------- | ---------------------------- |
-        | 0 | N | u8 | Version | Firmware or Hardware Version |
+| Offset | Bytes | Type | Name | Description |
+| :----: | :---: | :--: | ------- | ---------------------------- |
+| 0 | N | u8 | Version | Firmware or Hardware Version |
 * Example
     * Get Firmware Version
 
