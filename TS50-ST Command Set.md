@@ -3,10 +3,10 @@
 ## Table of Contents
 
 1. History
-2. [GNetPlus Protocol](./GNetPlus Protocol.md)
-    1. [Basic Package](./GNetPlus Protocol.md#basic_package)
-    2. [CRC16 Calculation](./GNetPlus Protocol.md#crc16_calculation)
-    3. [GNetPlus Implement](./GNetPlus Protocol.md#gntplus_implement)
+2. [GNetPlus Protocol](GNetPlus Protocol.md)
+    1. [Basic Package](GNetPlus Protocol.md#basic_package)
+    2. [CRC16 Calculation](GNetPlus Protocol.md#crc16_calculation)
+    3. [GNetPlus Implement](GNetPlus Protocol.md#gntplus_implement)
 3. [Commands](3.-commands)
     1. [Get Version](#3.1.-get-version(10h)-command)
     2. [Device Control](#3.2.-device-control(dch)-command)
@@ -14,7 +14,7 @@
 
 ## 3\. Commands
 
-TS50-ST Commands is base on [GNetPlus Protocol](./GNetPlus Protocol.md)
+TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus Protocol.md)
 
 ## *Request Code List*
 
