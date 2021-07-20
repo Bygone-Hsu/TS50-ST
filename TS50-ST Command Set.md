@@ -8,8 +8,8 @@
     2. [CRC16 Calculation](GNetPlus%20Protocol.md#crc16-calculation)
     3. [GNetPlus Implement](GNetPlus%20Protocol.md#gntplus-implement)
 3. [Commands](#3-commands)
-    1. [Get Version](#3-1-get-version\(10h\)-command)
-    2. [Device Control](#3-2-device-control(dch)-command)
+    1. [Get Version](#3-1-get-version-command)
+    2. [Device Control](#3-2-device-control-command)
 4. [Error Code](#4-error-code)
 
 ## 3\. Commands
@@ -20,10 +20,10 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 
 | Name | Code | Meaning |
 | :---: | :---: | ------- |
-| [Get Version](#3-1-get-version(10h)-command) | `10h` | Get Firmware / Hardware version |
-| [Device Control](#3-2-device-control(dch)-command) | `DCh` | Device I/O Control |
+| [Get Version](#3-1-get-version-command) | `10h` | Get Firmware / Hardware version |
+| [Device Control](#3-2-device-control-command) | `DCh` | Device I/O Control |
 
-## 3-1\. Get Version\(10h\) Command
+## 3-1\. Get Version Command
 
 ### Get Firmware/Hardware Version
 
@@ -76,7 +76,7 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | `04` | `37` | ` 54 53 35 30 2D 53 54 20` <br /> ` 52 4F 4D 2D 54 32 30 32` <br /> ` 34 20 56 31 2E 30 30 52` <br /> ` 30 20 28 32 31 30 37 31` <br /> ` 39 30 29 00 BD` | `Firmware Version:`<br /> `TS50-ST ROM-T2024 V1.00R0 (2107190)` |
 | `29` | `2` | ` 5F 00` | `CRC16` |
 
-## 3\.2\. Device Control\(DCh\) Command
+## 3-2\. Device Control Command
 
 ### Set Output with pattern
 
