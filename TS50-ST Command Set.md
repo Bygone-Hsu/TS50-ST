@@ -6,7 +6,7 @@
 2. [GNetPlus Protocol](GNetPlus%20Protocol.md)
     1. [Basic Package](GNetPlus%20Protocol.md#basic-package)
     2. [CRC16 Calculation](GNetPlus%20Protocol.md#crc16-calculation)
-    3. [GNetPlus Implement](GNetPlus%20Protocol.md#gntplus-implement)
+    3. [GNetPlus Implement](GNetPlus%20Protocol.md#gnetplus-implement)
 3. [Commands](#3-commands)
     1. [Get Version](#3-1-get-version-command)
     2. [Device Control](#3-2-device-control-command)
