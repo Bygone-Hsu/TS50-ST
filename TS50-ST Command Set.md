@@ -85,14 +85,14 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | Offset | Bytes | Type | Name | Description |
 | :----: | :---: | :---: | ---- | ----------- |
 | 0 | 1 | u8 | Target Type | Control Target Type<br />0: GPIO |
-| 1 | 1 | u8 | Control Function | Bit 0~1: Function<br />02h: Set<br /><br />Bit 2~7: Target<br />01h: Device, 功能的GPIO, 複合多PIN或者PWM等特殊功能的GPIO |
-| 2 | N | Structure | [Pattern] | [Output Pattern Structure](#output-pattern-structure)可以重覆 |
+| 1 | 1 | u8 | Control Function | Bit 0~1: Function<br />02h: Set<br /><br />Bit 2~7: Target<br />01h: Device, Special function GPIO, such as multi-color LED PIN or PWM, etc. |
+| 2 | N | Structure | [Pattern] | [Output Pattern Structure](#output-pattern-structure) is repeatable |
 
 * Response
     * NAK: Response an error code.
     * ACK: Success
 * Example
-    範例命令的回應請參考GNetPlus的[Response an ACK package](GNetPlus%20Protocol.md#response-an-ack-package), [Response a NAK package](GNetPlus%20Protocol.md#response-a-nak-package)
+    For the response of the example command, please refer to GNetPlus's example [Response an ACK package](GNetPlus%20Protocol.md#response-an-ack-package), [Response a NAK package](GNetPlus%20Protocol.md#response-a-nak-package)
     * Green LED On (Infinite)
     <br />`[Send 24 Bytes] GLED On + BLED Off (Infinite) (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
@@ -259,40 +259,40 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 
 #### Repeat Option
 
-選擇重覆的方式: 依次數或者依逾時
+Select the repetition method: By Count or By Timeout
 
-| Value | Name       | Description        |
-| :---: | ---------- | ------------------ |
-|   0   | By Count   | 重覆指定次數       |
-|   1   | By Timeout | 重覆直到指定的逾時 |
+| Value | Name       | Description                          |
+| :---: | ---------- | ------------------------------------ |
+|   0   | By Count   | Repeat the specified number of times |
+|   1   | By Timeout | Repeat until timeout                 |
 
 #### Output Pattern Structure
 | Offset | Bytes | Type | Name | Description |
 | :----: | :---: | :---: | ---- | ----------- |
 | 0 | 1 | u8 | Option | Bit 0: [Repeat Option](#repeat-option)<br/>0: By Count<br/>1: By Timeout<br/><br/>Bit 1~7: RFU |
 | 1 | 1 | u8 | Device ID | 00h: LED0 (Red+Green LED)<br />01h: LED1 (Blue LED)<br />F0h: Buzzer |
-| 2 | 2 | u16 | Repeat | Repeat為Big-Endian的數值, 依[Repeat Option](#repeat-option)決定Repeat為Count或者Timeout (單位: 1ms)<br />0: Infinite (低優先權) |
+| 2 | 2 | u16 | Repeat | Repeat is the value of Big-Endian, [Repeat Option](#repeat-option) selects Repeat as Count or Timeout <br/>0: Infinite (Low Priority)<br />Note: Repeat not equal to 0 is high priority |
 | 4 | 1 | u8 | Dot Option | Pattern Dot Option<br />Bit 0: Dot Type<br />0: [1 Byte Pattern Dot](#1-byte-pattern-dot-structure)<br />1: [2 Bytes Pattern Dot](#2-bytes-pattern-dot-structure) |
 | 5 | 1 | u8 | Dot Count | Pattern Dot Count |
-| 6 | N | Structure | [Pattern Dot] | Pattern Dot Structure重覆Pattern Dot Count次數, 依Pattern Dot Option決定Pattern Dot Structure為[1 Byte Pattern Dot Structure](#1-byte-pattern-dot-structure)或者[2 Bytes Pattern Dot Structure](#2-bytes-pattern-dot-structure) |
+| 6 | N | Structure | [Pattern Dot] | Repeat [Pattern Dot Structure] for [Pattern Dot Count] times, and [Pattern Dot Option] selects Dot Structure as [1 Byte Pattern Dot Structure](#1-byte-pattern-dot-structure) or [2 Bytes Pattern Dot Structure](#2-bytes-pattern-dot-structure) |
 
 #### 1 Byte Pattern Dot Structure
 
-每一個Output Pattern可重覆12次的1 Byte Pattern Dot
+Structure can be repeated 12 times
 
 | Offset | Bytes | Type | Name | Description |
 | :----: | :---: | :---: | ---- | ----------- |
 | 0 | 1 | u8 | Level | On/Off Level |
-| 1 | 1 | u8 | Timeout | Keep Level Timeout (單位: 20ms) |
+| 1 | 1 | u8 | Timeout | Keep Level Timeout (Unit: 20ms) |
 
 #### 2 Bytes Pattern Dot Structure
 
-每一個Output Pattern可重覆6次的2 Byte Pattern Dot
+Structure can be repeated 6 times
 
 | Offset | Bytes | Type | Name | Description |
 | :----: | :---: | :---: | ---- | ----------- |
 | 0 | 2 | u16 | Level | On/Off Level (Big-Endian) |
-| 2 | 2 | u16 | Timeout | Keep Level Timeout (Big-Endian, 單位: 1ms) |
+| 2 | 2 | u16 | Timeout | Keep Level Timeout (Big-Endian, Unit: 1ms) |
 
 ## 4\. Error Code
 
