@@ -90,11 +90,12 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 * Response
     * NAK: Response an error code.
     * ACK: Success
-* Example
+* Example<br />
     For the response of the example command, please refer to GNetPlus's example [Response an ACK package](GNetPlus%20Protocol.md#response-an-ack-package), [Response a NAK package](GNetPlus%20Protocol.md#response-a-nak-package)
 
     * GLED On + BLED Off (Infinite)
-    <br />`[Send 24 Bytes] GLED On + BLED Off (Infinite) (DCh Command)`
+
+<br />`[Send 24 Bytes] GLED On + BLED Off (Infinite) (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
 | `00` | `01` | `00` | `DC` | `12` | `00` | `06` | `00` | `00` | `00` | `00` | `00` | `01` | `01` | `00` | `00` | `01` | `................` |
@@ -124,7 +125,9 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | `15` | `1` | ` 00` | `0: Timeout: Infinite` |
 | `16` | `2` | ` B7 92` | `CRC16` |
 
+
     * GLED+RLED Off (Infinite), BLED 200 ms Flash (Infinite)
+
 <br />`[Send 26 Bytes] GLED+RLED Off (Infinite), BLED 200 ms Flash (Infinite) (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
@@ -157,7 +160,9 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | `17` | `1` | ` 0A` | `0Ah: Timeout: 20 ms*10(0Ah)=200 ms` |
 | `18` | `2` | ` 4A 53` | `CRC16` |
 
+
     * GLED On + BLED Off (Infinite), GLED On 300 ms Off 160 ms once, Beep 300 ms once
+
 <br />`[Send 44 Bytes] GLED On + BLED Off (Infinite), GLED On 300 ms Off 160 ms once, Beep 300 ms once (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
@@ -207,7 +212,9 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | `29` | `1` | ` 08` | `08h: Timeout: 20 ms*8(08h)=160 ms` |
 | `2A` | `2` | ` 32 4A` | `CRC16` |
 
+
     * GLED On + BLED Off (Infinite), RLED Flash 160 ms thrice, Beep On/Off 160 ms thrice
+
 <br />`[Send 44 Bytes] GLED On + BLED Off (Infinite), RLED Flash 160 ms thrice, Beep On/Off 160 ms thrice (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
