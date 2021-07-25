@@ -84,7 +84,7 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | Offset | Bytes | Type | Name | Description |
 | :----: | :---: | :---: | ---- | ----------- |
 | 0 | 1 | u8 | Target Type | Control Target Type<br />0: GPIO |
-| 1 | 1 | u8 | Control Function | Bit 0~1: Function<br />02h: Set<br /><br />Bit 2~7: Target<br />01h: Device, Special function GPIO, such as multi-color LED PIN or PWM, etc. |
+| 1 | 1 | u8 | Control Function | Bit 0\~1: Function<br />02h: Set<br /><br />Bit 2\~7: Target<br />01h: Device, Special function GPIO, such as multi-color LED PIN or PWM, etc. |
 | 2 | N | Structure | [Pattern] | [Output Pattern Structure](#output-pattern-structure) is repeatable |
 
 * Response
