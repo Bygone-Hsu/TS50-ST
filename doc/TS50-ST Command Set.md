@@ -45,36 +45,35 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 * Example
     * Get Firmware Version
 
-`[Send 7 Bytes] Get Version (10h Command)`
-| `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | `ASCII` |
+<br />`[Send 7 Bytes] Get Version (10h Command)`
+| `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
 | `00` | `01` | `00` | `10` | `01` | `00` | `71` | `00` |  |  |  |  |  |  |  |  |  | `.....q.` |
 
-| `Offset` | `Bytes` | `Data` | `Description` |
+| `Offset` | `Bytes` | <div style='min-width:12em' align='center'>`Data`</div> | <div style='min-width:32em' align='center'>`Description`</div> |
 | :------: | :---: | :--- | :---- |
 | `00` | `1` | ` 01` | `SOH (Start of Heading)` |
-| `01` | `1` | ` 00` | `Device Address` |
-| `02` | `1` | ` 10` | `Function Code` |
-| `03` | `1` | ` 01` | `Device Length` |
-| `04` | `1` | ` 00` | `Version index`<br /> `0: Firmware`<br /> `1: Hardware` |
+| `01` | `1` | ` 00` | `00h: Device Address: Broadcast (Any Device)` |
+| `02` | `1` | ` 10` | `10h: Code: Get Version` |
+| `03` | `1` | ` 01` | `Data Length` |
+| `04` | `1` | ` 00` | `0: Version Index: Get Firmware Version` |
 | `05` | `2` | ` 71 00` | `CRC16` |
 
-`[Receive 42 Bytes] Get Version Reply (ACK)`
-
-| `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | `ASCII` |
+<br />`[Receive 42 Bytes] Get Version Reply (ACK)`
+| `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
 | `00` | `01` | `FF` | `06` | `24` | `54` | `53` | `35` | `30` | `2D` | `53` | `54` | `20` | `52` | `4F` | `4D` | `2D` | `...$TS50-ST ROM-` |
 | `10` | `54` | `32` | `30` | `32` | `34` | `20` | `56` | `31` | `2E` | `30` | `30` | `52` | `30` | `20` | `28` | `32` | `T2024 V1.00R0 (2` |
 | `20` | `31` | `30` | `37` | `31` | `39` | `30` | `29` | `00` | `BD` | `5F` |  |  |  |  |  |  | `107190).._` |
 
-| `Offset` | `Bytes` | `Data` | `Description` |
+| `Offset` | `Bytes` | <div style='min-width:12em' align='center'>`Data`</div> | <div style='min-width:32em' align='center'>`Description`</div> |
 | :------: | :---: | :--- | :---- |
 | `00` | `1` | ` 01` | `SOH (Start of Heading)` |
 | `01` | `1` | ` FF` | `Device Address` |
-| `02` | `1` | ` 06` | `Reply Code` |
-| `03` | `1` | ` 24` | `Device Length` |
-| `04` | `37` | ` 54 53 35 30 2D 53 54 20` <br /> ` 52 4F 4D 2D 54 32 30 32` <br /> ` 34 20 56 31 2E 30 30 52` <br /> ` 30 20 28 32 31 30 37 31` <br /> ` 39 30 29 00 BD` | `Firmware Version:`<br /> `TS50-ST ROM-T2024 V1.00R0 (2107190)` |
-| `29` | `2` | ` 5F 00` | `CRC16` |
+| `02` | `1` | ` 06` | `06h: Code: ACK` |
+| `03` | `1` | ` 24` | `Data Length` |
+| `04` | `36` | ` 54 53 35 30 2D 53 54 20` <br /> ` 52 4F 4D 2D 54 32 30 32` <br /> ` 34 20 56 31 2E 30 30 52` <br /> ` 30 20 28 32 31 30 37 31` <br /> ` 39 30 29 00` | `Firmware Version:`<br />`TS50-ST ROM-T2024 V1.00R0 (2107190)` |
+| `28` | `2` | ` BD 5F` | `CRC16` |
 
 ## 3-2\. Device Control Command
 
@@ -93,7 +92,7 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
     * ACK: Success
 * Example
     For the response of the example command, please refer to GNetPlus's example [Response an ACK package](GNetPlus%20Protocol.md#response-an-ack-package), [Response a NAK package](GNetPlus%20Protocol.md#response-a-nak-package)
-    * Green LED On (Infinite)
+    * GLED On + BLED Off (Infinite)
     <br />`[Send 24 Bytes] GLED On + BLED Off (Infinite) (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
@@ -104,9 +103,9 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | :------: | :---: | :--- | :---- |
 | `00` | `1` | ` 01` | `SOH (Start of Heading)` |
 | `01` | `1` | ` 00` | `Device Address` |
-| `02` | `1` | ` DC` | `DCh Command` |
+| `02` | `1` | ` DC` | `DCh: Code: Device Control Command` |
 | `03` | `1` | ` 12` | `Data Length` |
-| `04` | `1` | ` 00` | `Control Target Type`<br />`0: GPIO` |
+| `04` | `1` | ` 00` | `0: Control Target Type: GPIO` |
 | `05` | `1` | ` 06` | `Bit 0~1: Function`<br />`02h: Set`<br /><br />`Bit 2~7: Target`<br />`01h: Device` |
 | `06` | `1` | ` 00` | `00h: Repeat Option: By Count` |
 | `07` | `1` | ` 00` | `00h: Device ID: LED0 (Red+Green LED)` |
@@ -124,8 +123,8 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | `15` | `1` | ` 00` | `0: Timeout: Infinite` |
 | `16` | `2` | ` B7 92` | `CRC16` |
 
-    * Green+Red LED Off (Infinite), Blue Flash 200 ms (Infinite)
-<br />`[Send 26 Bytes] DCh Command`
+    * GLED+RLED Off (Infinite), BLED 200 ms Flash (Infinite)
+<br />`[Send 26 Bytes] GLED+RLED Off (Infinite), BLED 200 ms Flash (Infinite) (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
 | `00` | `01` | `00` | `DC` | `14` | `00` | `06` | `00` | `00` | `00` | `00` | `00` | `01` | `00` | `00` | `00` | `01` | `................` |
@@ -135,9 +134,9 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | :------: | :---: | :--- | :---- |
 | `00` | `1` | ` 01` | `SOH (Start of Heading)` |
 | `01` | `1` | ` 00` | `Device Address` |
-| `02` | `1` | ` DC` | `DCh Command` |
+| `02` | `1` | ` DC` | `DCh: Code: Device Control Command` |
 | `03` | `1` | ` 14` | `Data Length` |
-| `04` | `1` | ` 00` | `Control Target Type`<br />`0: GPIO` |
+| `04` | `1` | ` 00` | `0: Control Target Type: GPIO` |
 | `05` | `1` | ` 06` | `Bit 0~1: Function`<br />`02h: Set`<br /><br />`Bit 2~7: Target`<br />`01h: Device` |
 | `06` | `1` | ` 00` | `0: Repeat Option: By Count` |
 | `07` | `1` | ` 00` | `00h: Device ID: LED0 (Red+Green LED)` |
@@ -157,7 +156,7 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | `17` | `1` | ` 0A` | `0Ah: Timeout: 20 ms*10(0Ah)=200 ms` |
 | `18` | `2` | ` 4A 53` | `CRC16` |
 
-    * Green LED On (Infinite), Green LED On 300 ms Off 160 ms once, Beep On/Off 300 ms once
+    * GLED On + BLED Off (Infinite), GLED On 300 ms Off 160 ms once, Beep 300 ms once
 <br />`[Send 44 Bytes] GLED On + BLED Off (Infinite), GLED On 300 ms Off 160 ms once, Beep 300 ms once (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
@@ -169,9 +168,9 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | :------: | :---: | :--- | :---- |
 | `00` | `1` | ` 01` | `SOH (Start of Heading)` |
 | `01` | `1` | ` 00` | `Device Address` |
-| `02` | `1` | ` DC` | `DCh Command` |
+| `02` | `1` | ` DC` | `DCh: Code: Device Control Command` |
 | `03` | `1` | ` 26` | `Data Length` |
-| `04` | `1` | ` 00` | `Control Target Type`<br />`0: GPIO` |
+| `04` | `1` | ` 00` | `0: Control Target Type: GPIO` |
 | `05` | `1` | ` 06` | `Bit 0~1: Function`<br />`02h: Set`<br /><br />`Bit 2~7: Target`<br />`01h: Device` |
 | `06` | `1` | ` 00` | `0: Repeat Option: By Count` |
 | `07` | `1` | ` 00` | `00h: Device ID: LED0 (Red+Green LED)` |
@@ -207,7 +206,7 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | `29` | `1` | ` 08` | `08h: Timeout: 20 ms*8(08h)=160 ms` |
 | `2A` | `2` | ` 32 4A` | `CRC16` |
 
-    * Green LED On (Infinite), Red LED Flash 160 ms thrice, Beep On/Off 160 ms thrice
+    * GLED On + BLED Off (Infinite), RLED Flash 160 ms thrice, Beep On/Off 160 ms thrice
 <br />`[Send 44 Bytes] GLED On + BLED Off (Infinite), RLED Flash 160 ms thrice, Beep On/Off 160 ms thrice (DCh Command)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
@@ -219,9 +218,9 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | :------: | :---: | :--- | :---- |
 | `00` | `1` | ` 01` | `SOH (Start of Heading)` |
 | `01` | `1` | ` 00` | `Device Address` |
-| `02` | `1` | ` DC` | `DCh Command` |
+| `02` | `1` | ` DC` | `DCh: Code: Device Control Command` |
 | `03` | `1` | ` 26` | `Data Length` |
-| `04` | `1` | ` 00` | `Control Target Type`<br />`0: GPIO` |
+| `04` | `1` | ` 00` | `0: Control Target Type: GPIO` |
 | `05` | `1` | ` 06` | `Bit 0~1: Function`<br />`02h: Set`<br /><br />`Bit 2~7: Target`<br />`01h: Device` |
 | `06` | `1` | ` 00` | `0: Repeat Option: By Count` |
 | `07` | `1` | ` 00` | `00h: Device ID: LED0 (Red+Green LED)` |

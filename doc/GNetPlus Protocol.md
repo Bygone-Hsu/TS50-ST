@@ -65,7 +65,7 @@ unsigned short GNetPlus_CRC16_Bytes(unsigned short uCRC16, const unsigned char* 
 General response packet
 
 #### Response an ACK package
-<br />`[Receive 6 Bytes] General Response an ACK package`
+<br />`[Receive 6 Bytes] General Response an ACK package (ACK)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
 | `00` | `01` | `FF` | `06` | `00` | `50` | `42` |  |  |  |  |  |  |  |  |  |  | `....PB` |
@@ -74,12 +74,12 @@ General response packet
 | :------: | :---: | :--- | :---- |
 | `00` | `1` | ` 01` | `SOH (Start of Heading)` |
 | `01` | `1` | ` FF` | `Device Address` |
-| `02` | `1` | ` 06` | `ACK` |
+| `02` | `1` | ` 06` | `06h: Code: ACK` |
 | `03` | `1` | ` 00` | `Data Length` |
 | `04` | `2` | ` 50 42` | `CRC16` |
 
 #### Response a NAK package
-<br />`[Receive 7 Bytes] General Response a NAK package`
+<br />`[Receive 7 Bytes] General Response an NAK package (NAK)`
 | `Offset` | `00` | `01` | `02` | `03` | `04` | `05` | `06` | `07` | `08` | `09` | `0A` | `0B` | `0C` | `0D` | `0E` | `0F` | <div style='min-width:8em' align='center'>`ASCII`</div> |
 | :------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---- |
 | `00` | `01` | `FF` | `15` | `01` | `F8` | `E6` | `21` |  |  |  |  |  |  |  |  |  | `......!` |
@@ -88,9 +88,9 @@ General response packet
 | :------: | :---: | :--- | :---- |
 | `00` | `1` | ` 01` | `SOH (Start of Heading)` |
 | `01` | `1` | ` FF` | `Device Address` |
-| `02` | `1` | ` 15` | `NAK` |
+| `02` | `1` | ` 15` | `15h: Code: NAK` |
 | `03` | `1` | ` 01` | `Data Length` |
-| `04` | `1` | ` F8` | `Error Code`<br />`F8h: Parameter error` |
+| `04` | `1` | ` F8` | `F8h: Error Code: Parameter error` |
 | `05` | `2` | ` E6 21` | `CRC16` |
 
 ### GNetPlus Implement
