@@ -56,7 +56,7 @@ TS50-ST Commands is base on [GNetPlus Protocol](GNetPlus%20Protocol.md)
 | `01` | `1` | ` 00` | `00h: Device Address: Broadcast (Any Device)` |
 | `02` | `1` | ` 10` | `10h: Code: Get Version` |
 | `03` | `1` | ` 01` | `Data Length` |
-| `04` | `1` | ` 00` | `0: Version Index: Get Firmware Version` |
+| `04` | `1` | ` 00` | `0: Version Index: Firmware Version` |
 | `05` | `2` | ` 71 00` | `CRC16` |
 
 <br />`[Receive 42 Bytes] Get Version Reply (ACK)`
